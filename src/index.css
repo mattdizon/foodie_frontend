@@ -12,3 +12,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.nav-left{
+    color:#fff;
+    text-decoration: none;
+    position: relative;
+}
+.profile-header{
+
+    margin:auto;
+
+
+}
+.recipe-filter-menu{
+    width: 300px;
+    height: 400px;
+    background-color: #f3f3f3;
+}
+.recipe-card{
+    width:700px;
+    height: 550px;
+    background-color: #000;
+    margin: auto;
+    color:#f3f3f3;
+    margin-bottom: 20px;
+    border-radius: 8px;
+
+    border-style: solid;
+     display: flex;
+      flex-direction: row;
+border-color: #000;
+}
+.recipe-card a{
+     color: white;
+}
+.thumbnail{
+    width:350px;
+    height:550px;
+    background-color: #fff;
+    position: absolute;
+}
+.description{
+    width:350px;
+    height:550px;
+    background-color: #003366;
+    margin-left: 350px;
+    text-align: center;
+}
+
+.recipesContainer{
+    display: inline-flex;
+     flex-wrap: wrap;
+     margin-top: 100px;
+
+}
