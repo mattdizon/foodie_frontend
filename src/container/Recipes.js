@@ -5,7 +5,8 @@ import RecipeCard from '../component/RecipeCard'
 class Recipes extends  React.Component{
 
     state = {
-        recipeList: []
+        recipeList: [],
+        filter: false
     }
     componentDidMount(){
         fetch(`http://localhost:3000/chef_recipes`)
@@ -13,16 +14,22 @@ class Recipes extends  React.Component{
         .then(recipeList => this.setState({recipeList}))
     }
     renderRecipeCard = () =>{
-        return this.state.recipeList.map(recipe => <RecipeCard recipeObj = {recipe}/>)
+        return this.state.recipeList.map(recipe => <RecipeCard recipeObj = {recipe} filter = {this.state.filter}/>)
+    }
+    filterRecipe = (recipes) =>{
+        this.setState({recipeList:recipes,
+        filter:true})
     }
 
     render() {
         console.log(this.state)
         return (
-            <div>
+            <div className = "container">
                 <h1>Recipes</h1>
                 <div className = "recipesContainer">
-                    <RecipeFilter/>
+                <div className = "recipe-filter-menu">
+                    <RecipeFilter filterRecipe = {this.filterRecipe}/>
+                </div>
                     <div className = "allRecipeCards">
                         {this.renderRecipeCard()}
                     </div>

@@ -6,7 +6,7 @@ import {Provider} from 'react-redux'
 import { Route, withRouter } from "react-router-dom";
 import store from './store'
 
-import Nav from './component/Nav'
+import Navi from './component/Nav'
 import SignUp from './component/SignUp'
 import SignIn from './component/SignIn'
 import Profile from './container/Profile'
@@ -20,7 +20,6 @@ import Recipe from './container/Recipe'
 class App extends Component {
     state = {
         auth: Auth.isUserAuthenticated(),
-        userObj: {},
         friendsList:[]
     }
 
@@ -79,16 +78,35 @@ class App extends Component {
              .catch(err => console.log(err))
              this.props.history.push("/");
         }
+        handleLogout = () => {
+            fetch('http://localhost:3000/logout',{
+                method: "DELETE",
+                headers: {
+                    token: Auth.getToken(),
+                    'Authorization': `Token ${Auth.getToken()}`,
+                }
+            })
+            .then(res => {
+                Auth.deauthenticateToken()
+                Auth.removeUserObj()
+                this.setState({
+                    auth: Auth.isUserAuthenticated(),
+                    userObj: {}
+                })
+            }).catch(err => console.log(err))
+
+        }
 
 
 
   render() {
+      console.log(this.state)
     return (
     //provider takes the store
     <Provider store = {store}>
           <div className="App">
-          <Nav/>
-            <Route exact path = "/" render = {() => <Home isUserSignIn = {this.state.auth}/>} />
+          <Navi isUserSignIn = {this.state.auth} handleLogout = {this.handleLogout}/>
+            <Route exact path = "/" render = {() => <Home />} />
             <Route path = "/signup" render = {() => <SignUp createAccount = {this.createAccount}/>}/>
             <Route path = "/signin" render = {() => <SignIn handleLoginSubmit = {this.handleLoginSubmit}/>}/ >
             <Route path = "/profile" render = {() => <Profile />}/ >

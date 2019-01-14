@@ -23,28 +23,30 @@ class Profile extends React.Component{
         .then(userIngredients => this.setState({userIngredients:userIngredients}))
     }
 
-            submitHandler = (e) =>{
-                e.preventDefault()
-                fetch(`http://localhost:3000/users/${this.state.userObj.id}/user_ingredients`,{
-                    method: "POST",
-                    headers: {"Content-Type":"application/json"},
-                    body: JSON.stringify({
-                        user_ingredient:{
-                            user_id: this.state.userObj.id,
-                            ingredient: this.state.ingredient
-                        }
-                        })
+    submitHandler = (e) =>{
+        e.preventDefault()
+        fetch(`http://localhost:3000/users/${this.state.userObj.id}/user_ingredients`,{
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({
+                user_ingredient:{
+                    user_id: this.state.userObj.id,
+                    ingredient: this.state.ingredient
+                }
                 })
+        })
     }
     handleChange = (e) =>{
         this.setState({ingredient: e.target.value})
     }
     showIngredients = () =>{
-        return this.state.userIngredients.map(ingredient => {return <UserIngredient ingredient = {ingredient}/>})
+        return this.state.userIngredients.map(ingredient => {
+            return <UserIngredient ingredient = {ingredient}/>})
     }
     render(){
         console.log(this.state.userIngredients)
         return(
+            <div className = "container">
             <div className = "profile-header">
                 <h1>{this.state.userObj.username}</h1>
                 <hr/>
@@ -58,6 +60,7 @@ class Profile extends React.Component{
                 <h1>Your Ingredients</h1>
                 {this.showIngredients()}
             </div>
+        </div>
         )
     }
 }

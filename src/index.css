@@ -6,27 +6,198 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.nav-left{
-    color:#fff;
-    text-decoration: none;
-    position: relative;
+
+.navbar-nav{
+    margin-top:15px;
+    margin-left: 25px;
+
 }
+.navbar-nav a{
+    margin-right: 35px;
+}
+.navbar{
+    background-color: #9b0000;
+}
+.navbar-brand{
+    color:#f3f3f3;
+}
+
+
+.form-control{
+		height: 40px;
+		box-shadow: none;
+		color: #969fa4;
+	}
+	.form-control:focus{
+		border-color: #5cb85c;
+	}
+    .form-control, .btn{
+        border-radius: 3px;
+    }
+	.signup-form{
+		width: 400px;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+	.signup-form h2{
+		color: #636363;
+        margin: 0 0 15px;
+		position: relative;
+		text-align: center;
+    }
+	.signup-form h2:before, .signup-form h2:after{
+		content: "";
+		height: 2px;
+		width: 30%;
+		background: #d4d4d4;
+		position: absolute;
+		top: 50%;
+		z-index: 2;
+	}
+	.signup-form h2:before{
+		left: 0;
+	}
+	.signup-form h2:after{
+		right: 0;
+	}
+    .signup-form .hint-text{
+		color: #999;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+    .signup-form form{
+		color: #999;
+		border-radius: 3px;
+    	margin-bottom: 15px;
+        background: #f2f3f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+	.signup-form .form-group{
+		margin-bottom: 20px;
+	}
+	.signup-form input[type="checkbox"]{
+		margin-top: 3px;
+	}
+	.signup-form .btn{
+        font-size: 16px;
+        font-weight: bold;
+		min-width: 140px;
+        outline: none !important;
+    }
+    .signup-form-two{
+		width: 800px;
+		margin:auto;
+		padding: 30px 0;
+        color: #999;
+        background: #f2f3f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        text-align: center;
+	}
+    .signup-form-two button{
+        width:auto;
+        margin:auto;
+    }
+	.signup-form .row div:first-child{
+		padding-right: 10px;
+	}
+	.signup-form .row div:last-child{
+		padding-left: 10px;
+	}
+    .signup-form a{
+		color: #fff;
+		text-decoration: underline;
+	}
+    .signup-form a:hover{
+		text-decoration: none;
+	}
+	.signup-form form a{
+		color: #5cb85c;
+		text-decoration: none;
+	}
+	.signup-form form a:hover{
+		text-decoration: underline;
+	}
+    .login-form {
+		width: 385px;
+		margin: 30px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .login-btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .input-group-addon .fa {
+        font-size: 18px;
+    }
+    .login-btn {
+        font-size: 15px;
+        font-weight: bold;
+    }
+	.social-btn .btn {
+		border: none;
+        margin: 10px 3px 0;
+        opacity: 1;
+	}
+    .social-btn .btn:hover {
+        opacity: 0.9;
+    }
+	.social-btn .btn-primary {
+        background: #507cc0;
+    }
+	.social-btn .btn-info {
+		background: #64ccf1;
+	}
+	.social-btn .btn-danger {
+		background: #df4930;
+	}
+    .or-seperator {
+        margin-top: 20px;
+        text-align: center;
+        border-top: 1px solid #ccc;
+    }
+    .or-seperator i {
+        padding: 0 10px;
+        background: #f7f7f7;
+        position: relative;
+        top: -11px;
+        z-index: 1;
+    }
+
+
+.top-right-buttons{
+    float: right;
+    position: inherit;
+    margin-top: 8px;
+}
+
+
+
+
 .profile-header{
-
     margin:auto;
-
-
 }
 .recipe-filter-menu{
-    width: 300px;
-    height: 400px;
     background-color: #f3f3f3;
+    margin-left: 25px;
+    padding: 25px;
+    margin-right: 25px;
+    height:100%;
 }
 .recipe-card{
     width:700px;
@@ -63,5 +234,11 @@ border-color: #000;
     display: inline-flex;
      flex-wrap: wrap;
      margin-top: 100px;
+}
 
+.container{
+    position:relative;
+}
+.main{
+    display:inline;
 }
