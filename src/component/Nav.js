@@ -7,7 +7,7 @@ class Nav extends React.Component{
     isUserSignedIn = () => {
         if(this.props.isUserSignIn === true){
             return(
-                <nav class="navbar navbar-expand-lg navbar-default">
+                <nav className="navbar navbar-expand-lg navbar-default">
                     <NavLink to ="/" className="navbar-brand">Foodz</NavLink>
 
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -32,7 +32,6 @@ class Nav extends React.Component{
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
                                 <NavLink to = "/">Home</NavLink>
-                                <NavLink to ="/profile" className="nav-item nav-link">Profile</NavLink>
                                 <NavLink to ="/recipes" className="nav-item nav-link">Recipes</NavLink>
                             </div>
                             <div className = "top-right-buttons">
@@ -47,7 +46,7 @@ class Nav extends React.Component{
         }
     }
     render(){
-        console.log(this.props)
+
         return(
 
             this.isUserSignedIn()

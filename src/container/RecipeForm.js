@@ -7,10 +7,11 @@ class RecipeForm extends React.Component{
         recipeCuisine:"",
         recipeTime:"",
         recipeDescription:"",
+        thumbnail:"",
         recipeIngredients:[{ingredient:""}],
         recipeInstructions:[{instruction:""}],
         recipeImages:[{image:""}],
-        recipeVideos:[{video:""}]
+        recipeVideo: ""
     }
     formHandler = (e) => {
         this.setState({
@@ -29,7 +30,9 @@ class RecipeForm extends React.Component{
                     difficulty: this.state.recipeDifficulty,
                     cuisine: this.state.recipeCuisine,
                     time: this.state.recipeTime,
-                    description: this.state.recipeDescription
+                    description: this.state.recipeDescription,
+                    thumbnail:this.state.thumbnail,
+                    video: this.state.recipeVideo
                 }
                 })
         })
@@ -38,7 +41,6 @@ class RecipeForm extends React.Component{
             this.addIngredientDB(resp.id)
             this.addInstructionDB(resp.id)
             this.addImageDB(resp.id)
-            this.addVideoDB(resp.id)
 
 
         })
@@ -82,19 +84,8 @@ class RecipeForm extends React.Component{
         })
 
     }
-    addVideoDB = (id) => {
-        this.state.recipeVideos.map(step => {
-            fetch(`http://localhost:3000/users/1/chef_recipes/${id}/videos`,{
-                method: "POST",
-                headers: {"Content-Type":"application/json"},
-                body: JSON.stringify({
-                    url: step.video,
-                    chef_recipe_id: id
-                })
-            })
-        })
 
-    }
+
     handleIngredientNameChange = (idx) => (evt) => {
         const newIngredients = this.state.recipeIngredients.map((ingredient, sidx) => {
           if (idx !== sidx) return ingredient;
@@ -156,28 +147,9 @@ class RecipeForm extends React.Component{
               });
 
           }
-          handleVideoNameChange = (idx) => (evt) => {
-              const newVideos = this.state.recipeVideos.map((video, sidx) => {
-                if (idx !== sidx) return video;
-                return { ...video, video: evt.target.value };
-              });
 
-              this.setState({ recipeVideos: newVideos });
-            }
-            handleAddImage = () => {
-                this.setState({
-                    recipeImages: this.state.recipeImages.concat([{ image: '' }])
-                });
-            }
-            handleRemoveImage = (idx) => () => {
-                this.setState({
-                    recipeImages: this.state.recipeImages.filter((s, sidx) => idx !== sidx)
-
-                });
-
-            }
     render(){
-        console.log(this.props)
+        console.log(this.state)
         return (
             <div className = "container">
                 <h1>New Recipe Form </h1>
@@ -219,8 +191,14 @@ class RecipeForm extends React.Component{
                         className = "small">-</button>
                     </div>
                 ))}
+                <label>Thumbnail</label>
+                <textarea value = {this.state.thumbnail} name = "thumbnail"/>
+                <br/>
+                <label>Video</label>
+                <textarea value = {this.state.recipeVideo} name = "recipeVideo"/>
+                <br/>
 
-                <label>Image Links</label>
+                <label>Additional Images</label>
                 {this.state.recipeImages.map((image, idx) => (
                     <div className = "ingredient">
                         <input type = "text" value = {image.image}
@@ -230,16 +208,7 @@ class RecipeForm extends React.Component{
                         className = "small">-</button>
                     </div>
                 ))}
-                <label>Video Links</label>
-                {this.state.recipeVideos.map((video, idx) => (
-                    <div className = "ingredient">
-                        <input type = "text" value = {video.video}
-                        onChange = {this.handleVideoNameChange(idx)}
-                        />
-                        <button onClick = {this.handleRemoveImage(idx)}
-                        className = "small">-</button>
-                    </div>
-                ))}
+
 
 
 

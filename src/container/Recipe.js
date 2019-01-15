@@ -6,18 +6,22 @@ class Recipe extends React.Component{
         filter: false
     }
 
-componentDidMount(){
+componentWillMount(){
     const {id} = this.props.match.params
     fetch(`http://localhost:3000/chef_recipes/${id}`)
     .then(resp => resp.json())
-    .then(recipeObj => this.setState({recipeObj:recipeObj}))
+    .then(recipeObj => this.setState({recipeObj}))
 }
 
 
     render(){
+        console.log(this.state.recipeObj.video)
         return(
             <div className = "container">
                 <div className = "mediaContainer">
+                <iframe width="600" height="400"
+                src={this.state.recipeObj.video}>s
+                </iframe>
                 </div>
                 <div className = "ingredients">
                 </div>

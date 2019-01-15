@@ -100,7 +100,7 @@ class App extends Component {
 
 
   render() {
-      console.log(this.state)
+
     return (
     //provider takes the store
     <Provider store = {store}>
