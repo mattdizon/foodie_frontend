@@ -15,7 +15,7 @@ import Auth from './module/Auth'
 import RecipeForm from './container/RecipeForm'
 import Recipes from './container/Recipes'
 import Recipe from './container/Recipe'
-
+import RecipeYummly from './container/RecipeYummly'
 
 class App extends Component {
     state = {
@@ -26,7 +26,7 @@ class App extends Component {
     createAccount = (user, e) => {
         e.preventDefault()
 
-        fetch(`http://localhost:3000/users`, {
+        fetch(`http://foodz-backend.herokuapp.com/users`, {
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify({
@@ -60,7 +60,7 @@ class App extends Component {
 
         handleLoginSubmit = (data,e) =>{
             e.preventDefault();
-            fetch('http://localhost:3000/login',{
+            fetch('http://foodz-backend.herokuapp.com/login',{
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
@@ -79,7 +79,7 @@ class App extends Component {
              this.props.history.push("/");
         }
         handleLogout = () => {
-            fetch('http://localhost:3000/logout',{
+            fetch('http://foodz-backend.herokuapp.com/logout',{
                 method: "DELETE",
                 headers: {
                     token: Auth.getToken(),
@@ -113,6 +113,7 @@ class App extends Component {
             <Route exact path = "/create-recipe" render = {() => <RecipeForm/>} />
             <Route exact path = "/recipes" render = {() => <Recipes/>} />
             <Route path='/recipes/:id' exact component={Recipe}/>
+            <Route path='/recipes/yummlyapi/:id' exact component={RecipeYummly}/>
           </div>
       </Provider>
     );

@@ -9,7 +9,7 @@ class Recipes extends  React.Component{
         filter: false
     }
     componentDidMount(){
-        fetch(`http://localhost:3000/chef_recipes`)
+        fetch(`http://foodz-backend.herokuapp.com/chef_recipes`)
         .then(resp => resp.json())
         .then(recipeList => this.setState({recipeList}))
     }

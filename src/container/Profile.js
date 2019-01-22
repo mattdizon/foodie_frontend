@@ -9,7 +9,7 @@ class Profile extends React.Component{
         userIngredients:[]
     }
     componentDidMount(){
-            fetch("http://localhost:3000/users")
+            fetch("http://foodz-backend.herokuapp.com/users")
             .then(resp => resp.json())
             .then(resp =>{
                 let x = resp.filter(user => user.auth_token === Auth.getToken())
@@ -18,14 +18,14 @@ class Profile extends React.Component{
             .then(this.fetchUserIngredients())
     }
     fetchUserIngredients = () =>{
-        fetch(`http://localhost:3000/users/${this.state.userObj.id}/user_ingredients`)
+        fetch(`http://foodz-backend.herokuapp.com/users/${this.state.userObj.id}/user_ingredients`)
         .then(resp => resp.json())
         .then(userIngredients => this.setState({userIngredients:userIngredients}))
     }
 
     submitHandler = (e) =>{
         e.preventDefault()
-        fetch(`http://localhost:3000/users/${this.state.userObj.id}/user_ingredients`,{
+        fetch(`http://foodz-backend.herokuapp.com/users/${this.state.userObj.id}/user_ingredients`,{
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify({

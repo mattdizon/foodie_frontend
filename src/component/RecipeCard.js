@@ -14,8 +14,11 @@ class RecipeCard extends React.Component{
             return(
                 <Link to = {`/recipes/${this.props.recipeObj.id}`}>
                 <div className = "recipe-card">
-                    <div className = "thumbnail">
-                        <img src = {this.props.recipeObj.thumbnail}/>
+                    <div className ="thumbnail"
+                    style={{  backgroundImage: "url(" + `${this.props.recipeObj.thumbnail}` + ")",
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',}}>
                     </div>
                     <div className = "description">
                         <h1>{this.props.recipeObj.name}</h1>
@@ -29,10 +32,12 @@ class RecipeCard extends React.Component{
         }
         else{
             return(
-
+                <Link to = {`/recipes/yummlyapi/${this.props.recipeObj.id}`}>
                 <div className = "recipe-card">
-                    <div className = "thumbnail">
-                    <img src = {this.props.recipeObj.images[0].hostedLargeUrl}/>
+                    <div className = "thumbnail"style={{  backgroundImage: "url(" + `${this.props.recipeObj.images[0].hostedLargeUrl}` + ")",
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',}}>
                     </div>
                     <div className = "description">
                         <h1>{this.props.recipeObj.name}</h1>
@@ -41,6 +46,7 @@ class RecipeCard extends React.Component{
                         <p>{this.props.recipeObj.description}</p>
                     </div>
                 </div>
+                </Link>
 
             )
         }
