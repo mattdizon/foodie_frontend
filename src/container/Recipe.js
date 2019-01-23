@@ -30,26 +30,25 @@ componentDidMount(){
         console.log(this.state)
         return(
             <div className = "container">
-                <div className = "">
-                <iframe width="60%" height="600px"
-                src={this.state.recipeObj.video} className = "carosell">
-                </iframe>
+                <div className = "mediaContainer">
+                    <iframe width="60%" height="600px"
+                    src={this.state.recipeObj.video} className = "carosell">
+                    </iframe>
                 </div>
                 <div className = "contentContainer">
-                <h1>{this.state.recipeObj.recipe_name}</h1>
-                <p>Cuisine: {this.state.recipeObj.cuisine}</p>
-                <p>{this.state.recipeObj.description}</p>
-                <p>Time {this.state.recipeObj.time}</p>
-                <div className = "ingredients">
-                <ul className = "ingredientList">
-                    {this.showIng()}
-                </ul>
+                    <h1>{this.state.recipeObj.recipe_name}</h1>
+                    <p>Cuisine: {this.state.recipeObj.cuisine}</p>
+                    <p>{this.state.recipeObj.description}</p>
+                    <p>Time {this.state.recipeObj.time}</p>
+                    <div className = "ingredients">
+                        <ul className = "ingredientList">
+                            {this.showIng()}
+                        </ul>
+                    </div>
+                <div className = "instructions">
+                    {this.showInst()}
                 </div>
-                <br/>
-                <div className = "ingredients">
-                {this.showInst()}
-                </div>
-                </div>
+            </div>
 
             </div>
 

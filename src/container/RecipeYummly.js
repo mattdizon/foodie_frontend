@@ -29,13 +29,13 @@ class RecipeYummly extends React.Component{
     }
     showURL = () =>{
         if(this.state.recipeObj.source !== undefined){
-            return (<p> Please visit {this.state.recipeObj.source.sourceRecipeUrl} for the recipe</p> )
+            return (<p> For the recipe please visit <a href = {this.state.recipeObj.source.sourceRecipeUrl}> {this.state.recipeObj.source.sourceRecipeUrl}</a></p> )
         }
     }
 
 
     render(){
-
+        console.log(this.state)
         return(
             <div className = "container">
                 <div className = "mediaContainer">
@@ -44,8 +44,10 @@ class RecipeYummly extends React.Component{
 
                 <div className = "contentContainer">
                 <h1>{this.state.recipeObj.name}</h1>
-                <h4>Time {this.state.recipeObj.totalTime}</h4>
                 {this.showURL()}
+                <h4>Time {this.state.recipeObj.totalTime}</h4>
+                <h5>Number of servings: {this.state.recipeObj.yield}</h5>
+
                 <div className = "ingredients">
                 {this.showIng()}
                 </div>

@@ -21,7 +21,7 @@ class RecipeCard extends React.Component{
                     backgroundRepeat: 'no-repeat',}}>
                     </div>
                     <div className = "description">
-                        <h1>{this.props.recipeObj.name}</h1>
+                        <h1>{this.props.recipeObj.recipe_name}</h1>
                         <p>{this.props.recipeObj.cuisine}</p>
                         <p>{this.props.recipeObj.time}</p>
                         <p>{this.props.recipeObj.description}</p>

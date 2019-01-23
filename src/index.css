@@ -23,7 +23,7 @@ code {
     margin-right: 35px;
 }
 .navbar{
-    background-color: #9b0000;
+    background-color: #000;
 }
 .navbar-brand{
     color:#f3f3f3;
@@ -238,7 +238,8 @@ border-color: #000;
      margin-top: 100px;
 }
 .media{
-    margin: auto;
+    width:40%;
+    height: 10%;
 }
 .container{
     width:100%;
@@ -248,8 +249,7 @@ border-color: #000;
     display:inline;
 }
 .mediaContainer{
-
-    margin: auto;
+    text-align: center;
 }
 .carosell{
     margin:auto;
@@ -260,4 +260,20 @@ border-color: #000;
 .thumb{
     width: 600px;
     margin:auto;
+}
+.description{
+    text-align: left;
+    padding-left: 20px;
+}
+.contentContainer{
+    margin-left: 100px;
+    
+}
+.ingredients{
+    width: 25%;
+    height: 100%;
+    background-color: grey;
+}
+.instructions{
+    display: inline;
 }
